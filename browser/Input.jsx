@@ -30,7 +30,7 @@ export default class Input extends React.Component {
     }
 
     render() {
-        console.log("now im here..");
+        console.log("now im here..", this.props);
         console.log("this.state.ingredients", this.state.ingredients);
         return (
             <div>

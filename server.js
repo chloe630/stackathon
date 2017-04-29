@@ -113,13 +113,32 @@ app.get('/api/recipes/:id', function (req, res) {
     else res.json(aRecipe);
 });
 
-app.post('/api/user/', function(req, res) {
-    res.json(allUsers.push)
-})
+app.get('/api/user', (req, res) => {
+    res.json(allUsers.map(({id, name, email, password, favoriteDrinks}) => ({id, name, email, password, favoriteDrinks})));
+});
+
+app.get('/api/user/:email', function (req, res) {
+    console.log(req.params.id);
+
+    const userId = allUsers.find(p => p.email === req.params.email).id;
+    if (!userId) res.status(404).end();
+    else {res.json(allUsers[userId]);
+    }
+});
+
+
+app.post('/api/user/', function (req, res, next) {
+    const possibleId = allUsers.length() + 1;
+    const userInfo = Object.assign({}, req.params, {id : possibleId });
+    const existingUser = allUsers.find(u => u.email === userInfo.email);
+    if (!existingUser) allUsers.push(userInfo);
+    else res.send("User exist, you can't sign up with this email!");
+    });
 
 // app.get('/api/login');
 
 app.listen(3000, function () {
     console.log('Server listening on port', 3000);
 });
+
 
