@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router';
 
 export default class SingleUser extends React.Component{
 
@@ -23,6 +24,13 @@ export default class SingleUser extends React.Component{
     }
 
     render(){
+        $('.button-collapse').sideNav({
+                menuWidth: 300, // Default is 300
+                edge: 'right', // Choose the horizontal origin
+                closeOnClick: true, // Closes side-nav on <a> clicks, useful for Angular/Meteor
+                draggable: true // Choose whether you can drag to open on touch screens
+            }
+        );
         return (
 
             <div>
@@ -37,11 +45,10 @@ export default class SingleUser extends React.Component{
                     </div></li>
                     <li><a href="#!"><i className="material-icons">cloud</i>First Link With Icon</a></li>
                     <li><a href="#!">Second Link</a></li>
-                    <li><div className="divider"></div></li>
+                    <li><div className="divider"/></li>
                     <li><a className="subheader">Subheader</a></li>
                     <li><a className="waves-effect" href="#!">Third Link With Waves</a></li>
                 </ul>
-                <a href="#" data-activates="slide-out" className="button-collapse"><i className="material-icons">menu</i></a>
             </div>
         );
     }

@@ -27,7 +27,7 @@ export default class AllRecipes extends React.Component {
                         this.state.recipes && this.state.recipes.map(recipe => (
 
                             <div className="col s12 m7" key = {recipe.id}>
-                                <h2 className="header">{ recipe.name }</h2>
+                                <h2 className="header #1976d2 blue-text text-darken-2">{ recipe.name }</h2>
                                 <div className="card horizontal">
                                     <div className="card-image">
                                         <img src={ recipe.image } />
@@ -37,7 +37,7 @@ export default class AllRecipes extends React.Component {
                                             <p>{ recipe.content }</p>
                                         </div>
                                         <div className="card-action">
-                                            <Link to = { `/recipes/${ recipe.id }` }> How to make it? </Link>
+                                            <Link to = { `/recipes/${ recipe.id }` } className = "blue-text text-darken-2"> How to make it? </Link>
                                         </div>
                                     </div>
                                 </div>

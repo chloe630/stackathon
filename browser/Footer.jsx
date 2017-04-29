@@ -1,8 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Link, browserHistory } from 'react-router';
 
-class Footer extends React.Component {
+export default class Footer extends React.Component {
     constructor(props) {
         super(props)
     }
@@ -10,7 +9,7 @@ class Footer extends React.Component {
     render() {
         return (
             <div>
-                <footer className="page-footer">
+                <footer className="page-footer #90caf9 blue lighten-3" >
                     <div className="container">
                         <div className="row">
                             <div className="col l6 s12">
@@ -20,10 +19,10 @@ class Footer extends React.Component {
                             <div className="col l4 offset-l2 s12">
                                 <h5 className="white-text">Links</h5>
                                 <ul>
-                                    <li><a className="grey-text text-lighten-3" href="https://www.linkedin.com/in/chloe-c/">Linkedin</a></li>
-                                    <li><a className="grey-text text-lighten-3" href="https://github.com/chloe630">Github</a></li>
-                                    <li><a className="grey-text text-lighten-3" href="#!">whatever....</a></li>
-                                    <li><a className="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                                    <li><Link to = "https://www.linkedin.com/in/chloe-c/" className="grey-text text-lighten-3">Linkedin</Link></li>
+                                    <li><Link to= "https://github.com/chloe630" className="grey-text text-lighten-3">Github</Link></li>
+                                    <li><Link to = "https://facebook.com/gowoon630" className="grey-text text-lighten-3">whatever....</Link></li>
+
                                 </ul>
                             </div>
                         </div>
@@ -35,28 +34,7 @@ class Footer extends React.Component {
                     </div>
                 </footer>
             </div>
-    )
+        )
     }
 }
 
-
-const mapProps = null;
-
-const mapDispatch = null;
-
-export default connect(mapProps, mapDispatch)(Footer)
-
-// 'use strict';
-//
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import AllPuppies from './AllPuppies';
-//
-// ReactDOM.render(
-//     <div className="container flexbox-container">
-//         <div className="jumbotron">
-//             <AllPuppies />
-//         </div>
-//     </div>,
-//     document.getElementById('app')
-// );

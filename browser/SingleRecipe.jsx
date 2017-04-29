@@ -8,8 +8,8 @@ export default class SingleRecipe extends React.Component {
         this.state = Object.assign({}, this.props, {
             recipe: {}
         });
-        this.onChangePlus = this.onChangePlus.bind();
-        this.onChangeMinus = this.onChangeMinus.bind();
+        this.onClickPlus = this.onClickPlus.bind(this);
+        this.onClickMinus = this.onClickMinus.bind(this);
     }
 
     componentDidMount() {
@@ -20,28 +20,26 @@ export default class SingleRecipe extends React.Component {
                 this.setState({ recipe });
             });
     }
-
-    onChangePlus(event) {
-        console.log("i'm here:", this.state);
-
-        let newRating = this.state.recipe.rating + 1;
+    onClickPlus(event) {
+        let newRecipe = this.state.recipe;
+        newRecipe.rating = newRecipe.rating + 1;
         this.setState({
-            recipe: update(this.state.recipe, {rating: newRating})
-        })
+            recipe: newRecipe
+        });
+        console.log(this.state.recipe);
     }
 
-    onChangeMinus(event) {
-        let newRating = this.recipe.rating - 1;
+    onClickMinus(event) {
+        let newRecipe = this.state.recipe;
+        newRecipe.rating = newRecipe.rating - 1;
         this.setState({
-            recipe: update(this.state.recipe, {rating: newRating})
-        })
+            recipe: newRecipe
+        });
     }
-
-
-
 
     render() {
         const recipe = this.state.recipe;
+        console.log(recipe);
         return (
             <div>
                 <div className = "row">
@@ -61,12 +59,14 @@ export default class SingleRecipe extends React.Component {
                     </div>
                     <hr/>
                     <div className = "col m12">
-                        <button onClick = { this.onChangePlus } className="btn waves-effect waves-light btn-block btn-primary">Like it!</button>
-                        <button onClick = { this.onChangeMinus } className="btn waves-effect waves-light btn-block btn-primary">Meh.. </button>
+                        <button onClick = { this.onClickPlus } className="btn waves-effect waves-light btn-block btn-primary">Like it!</button>
+                        <button onClick = { this.onClickMinus } className="btn waves-effect waves-light btn-block btn-primary">Meh.. </button>
                         <button className="btn waves-effect waves-light btn-block btn-primary">Save this recipe!</button>
                     </div>
                 </div>
             </div>
         );
     }
+
+
 }
