@@ -2,7 +2,7 @@
 
 // React Imports
 import React from 'react';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { render } from 'react-dom';
 import axios from 'axios';
 
@@ -50,7 +50,7 @@ const onLoginSubmit = event => {
 };
 
 render(
-    <Router history={ hashHistory }>
+    <Router history={ browserHistory }>
         <Route path="/" component={ Root } onEnter = { fetchAllUsers } isLoggedIn = { isLoggedIn }>
             <Route path="/search" component = { Input } />
             <Route path="/recipes" component={ AllRecipes }/>
